@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon --exec babel-node src/index.js",
+    "build:dev": "webpack",
+    "build:prod": "webpack --mode production",
     "seed:keys": "DEBUG=app* node src/utils/scripts/seedKeys.js"
   },
   "keywords": [],
@@ -23,15 +25,20 @@
     "mongodb": "^3.6.2",
     "passport": "^0.4.1",
     "passport-http": "^0.3.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "path-browserify": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
     "chalk": "^4.1.0",
+    "crypto-browserify": "^3.12.0",
     "debug": "^4.2.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^4.2.0"
   }
 }
