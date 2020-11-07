@@ -7,8 +7,6 @@ import { logErrors, errorHandler } from './utils/middleware/handlerError';
 import { notFoundHandler } from './utils/middleware/notFound';
 import { routes } from './routes';
 
-import { Mongo } from './lib/mongo';
-
 class Server {
     constructor() {
         this.app = express();
@@ -21,12 +19,16 @@ class Server {
     listen() {
         this.app.listen(this.port, (err) => {
             if (err) console.log(err);
-            console.log(`Listen on http://localhost:${this.port}`)
+            console.log(`${
+                _config.dev ? `Listen on http://localhost:${this.port}` : `listen on port ${this.port}`
+            }`)
         })
     }
 
     middleWares() {
-        this.app.use(morgan('dev'));
+        if(_config.dev){ 
+            this.app.use(morgan('dev'));
+        }
         this.app.use(bodyParser.urlencoded({ extended: false }));
         this.app.use(bodyParser.json());
     }

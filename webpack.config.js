@@ -1,14 +1,21 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
-    entry: './src/index.js',
-    mode: 'production',
+    mode: `${process.env.NODE_ENV || 'production'}`,
+    devtool: 'source-map',
+    context: path.resolve(__dirname, './src'),
+    entry: './index.js',
+    target: "node",
+    externals: [nodeExternals()],   
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: { loader: 'babel-loader' }
+          loader: 'babel-loader' 
         }
       ]
     },

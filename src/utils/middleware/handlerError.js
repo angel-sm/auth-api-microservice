@@ -9,16 +9,11 @@ function withErrorStack(error, stack) {
     return error;
 }
 
-function logErrors(err, req, res, next) {
+export function logErrors(err, req, res, next) {
     next(err);
 }
 
-function errorHandler(err, req, res, next) { // eslint-disable-line
+export function errorHandler(err, req, res, next) { // eslint-disable-line
     res.status(err.status || 500);
     res.json(withErrorStack(err.message, err.stack));
 }
-
-module.exports = {
-    logErrors,
-    errorHandler
-};
