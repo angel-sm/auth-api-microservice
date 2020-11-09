@@ -122,23 +122,23 @@ use follow route
 ### Build
 To build image in docker use command
 
-  $ docker build --tag <image-docker-name> . 
+    $ docker build --tag <image-docker-name> . 
 
 then check if your image gonna be created
 
-  $ docker images
+    $ docker images
 
 ### Run
 Run docker image with the next command
 
-	$ docker run -it -p 4000:8080 -d <image-docker-name> 
+	  $ docker run -it -p 4000:8080 -d <image-docker-name> 
 
 then check if your container ir running correclty
   
-	$ docker ps
+	  $ docker ps
 
 if you have error try 
 
-	$ docker ps <id-image>
+	  $ docker ps <id-image>
 
 and check logs of your container
