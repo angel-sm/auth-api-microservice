@@ -63,12 +63,12 @@ use follow route
 ### Build
 To build image in docker use command
 
-  $ docker build --tag <image-docker-name> . 
+    $ docker build --tag <image-docker-name> . 
 
 
 then check if your image gonna be created
 
-  $ docker images
+    $ docker images
 
 
 ### Run
