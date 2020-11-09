@@ -1,19 +1,20 @@
 #  auth-api-microservice
 
-authentication api exposed through microservice in docker
+api de autenticacion usando contenedores en docker para microservicios
 
-### Install
-To start aplicaction after to clone repo you need install aplicaction with folow command 	
+### Instalacion
+Despues de clonar el repositorio, correr el comando siguiente para instalar la aplicacion en nuestra maquina local
 
 	$ npm install
 			 
 ### Variables
-You need create .env file to add environment variables
+Hay que crear nuestro archivo de variables de entorno que requiere nuestra aplicacion para eso usamos el siguiente comando
 
 	$ touch .env
 
-Paste folow variables and fill
+seran las siguientes variables
 
+  NODE_ENV= production o development
 	PORT=
 	MONGO_DB_USER=
 	MONGO_DB_PASS=
@@ -22,66 +23,70 @@ Paste folow variables and fill
 	JWT_AUTH_SECRET= (265 hash key)
 
 ### Build
-To build application to production mode
+Para construir nuestra aplicacion para produccion es necesario correr el siguiente comando
 
 	$ npm run build
+
+webpack se encargara de crear nuestra carbeta /dist con nuestro archivo main.js que sera nuestra aplicacion para produccion
 		
 ### Start
-Start aplication with follow command
+Para correr la aplicacion una vez instalada en nuestra maquina local puede ser de dos maneras
 
-	Dev mode
+  Modo desarrollo 
 	$ npm run start:dev
 
-	Production mode
+	Modo produccion es necesario correr el comando build para correr en produccion
 	$ npm start
-
 
 ## Routes
 
 ### Auth
 
 ### sign-in 
-you need a apiKeyToken to sign-in in auth-api this token is from DB where wach token have allowed scopes from each user.
-Use follow route
+Para iniciar sesion es necesario un apiKeyToken que debe venir en el cuerpo de nuestra peticion, esto debera ser por parte del cliente que consume nuestra api, sera en la siguiente ruta.
 
 	/auth/sign-in
 
 ### sign-up 
-to register one user you need one JSON with 2 params 
+Para registrar nuestro usuario es necesario dos parametros como a continuacion
 
 	{
 	 "email": "some@example.com",
 	 "password": "something"
 	}
 
-use follow route
+En la siguiente ruta, el cual devolvera el id del usuario creado
 
 	/auth/sign-in
 
 ## Docker
 
 ### Build
-To build image in docker use command
+Para crear nuestra imagen de docker usaremos el siguiente comando
 
     $ docker build --tag <image-docker-name> . 
 
 
-then check if your image gonna be created
+Despues checamos si se creo correctamente
 
     $ docker images
 
 
 ### Run
-Run docker image with the next command
+Una vez construida nuestra imagen en docker usaremos el siguiente comando
 
 	$ docker run -it -p 4000:8080 -d <image-docker-name> 
 
-then check if your container ir running correclty
-  
+Veremos si nuestro contenedor esta corriendo correctamente
+
 	$ docker ps
 
-if you have error try 
+Para ver si hay algun error podemos usar el siguiente comando o para mostrar si hay algun log de nuestra aplicacion
 
 	$ docker ps <id-image>
 
-and check logs of your container
+En caso de que nuestro log sea
+
+  listen on port <some-port>
+
+Nuestra aplicacion estara corriendo correctamente
