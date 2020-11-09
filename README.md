@@ -65,9 +65,11 @@ To build image in docker use command
 
   $ docker build --tag <image-docker-name> . 
 
+
 then check if your image gonna be created
 
   $ docker images
+
 
 ### Run
 Run docker image with the next command
