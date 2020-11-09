@@ -1,6 +1,6 @@
 #  auth-api-microservice
 
-api de autenticacion usando contenedores en docker para microservicios
+Api de autenticacion usando contenedores en docker para microservicios
 
 ### Instalacion
 Despues de clonar el repositorio, correr el comando siguiente para instalar la aplicacion en nuestra maquina local
@@ -12,22 +12,14 @@ Hay que crear nuestro archivo de variables de entorno que requiere nuestra aplic
 
 	$ touch .env
 
-seran las siguientes variables
-
-  NODE_ENV= production o development
-	PORT=
-	MONGO_DB_USER=
-	MONGO_DB_PASS=
-	MONGO_DB_NAME=
-	MONGO_DB_CLUSTER=
-	JWT_AUTH_SECRET= (265 hash key)
+Las variables se encuentran en el archivo .env.example
 
 ### Build
 Para construir nuestra aplicacion para produccion es necesario correr el siguiente comando
 
 	$ npm run build
 
-webpack se encargara de crear nuestra carbeta /dist con nuestro archivo main.js que sera nuestra aplicacion para produccion
+Webpack se encargara de crear nuestra carbeta /dist con nuestro archivo main.js que sera nuestra aplicacion para produccion
 		
 ### Start
 Para correr la aplicacion una vez instalada en nuestra maquina local puede ser de dos maneras
