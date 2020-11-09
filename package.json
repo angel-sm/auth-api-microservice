@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon --exec babel-node src/index.js",
     "build": "webpack",
-    "start:prod": "node ./dist/main.js",
+    "start": "node ./dist/main.js",
     "seed:keys": "DEBUG=app* node src/utils/scripts/seedKeys.js"
   },
   "keywords": [],

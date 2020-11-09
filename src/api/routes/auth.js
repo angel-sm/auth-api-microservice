@@ -23,7 +23,7 @@ export class AuthRoutes {
         const { apiKeyToken } = req.body;
         
         if (!apiKeyToken) {
-          return next(boom.unauthorized('api token is required'));
+          return next(boom.unauthorized('api key token is required'));
         }
 
         // Validate using basic strategic
