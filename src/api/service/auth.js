@@ -8,9 +8,11 @@ export class AuthService {
     }
 
     async create(data){
-        const  { email, password } = data;
+        const  { email, password, name, center } = data;
         const response = await this.mongoService.insert(this.collection, {
             email,
+            name,
+            center,
             password: encrypt(password),
         });
         return response;

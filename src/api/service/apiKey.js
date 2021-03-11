@@ -7,7 +7,6 @@ export class ApiKeysService{
     }
 
     async get(token){
-        console.log(token);
         const existanceToken = await this.mongoService.get(this.collection, token);
         return existanceToken; 
     }

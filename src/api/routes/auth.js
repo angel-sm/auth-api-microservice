@@ -45,7 +45,6 @@ export class AuthRoutes {
                 return next(token)
               }
 
-
               return res.status(200).json(token)
             })
           } catch (error) {
